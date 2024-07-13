@@ -14,7 +14,7 @@ int executeCryption(const string &taskData){
         char ch;
         while(task.f_stream.get(ch)){
             ch = (ch + key)%256;
-            task.f_stream.seekp(-1, ios::cur);
+            task.f_stream.seekp(-1, std::ios::cur);
             task.f_stream.put(ch);
         }
         task.f_stream.close();
@@ -23,7 +23,7 @@ int executeCryption(const string &taskData){
         char ch;
         while(task.f_stream.get(ch)){
             ch = (ch - key + 256) % 256;
-            task.f_stream.seekp(-1,ios::cur);
+            task.f_stream.seekp(-1,std::ios::cur);
             task.f_stream.put(ch);
         }
         task.f_stream.close();

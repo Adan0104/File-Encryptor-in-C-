@@ -1,5 +1,5 @@
-#ifndef PROCESS_MANAGEMENT
-#define PROCESS_MANAGEMENT
+#ifndef PROCESS_MANAGEMENT_HPP
+#define PROCESS_MANAGEMENT_HPP
 #include "Task.hpp"
 #include <queue>
 #include <memory>
@@ -8,11 +8,11 @@ class ProcessManagement{
 
     public:
         ProcessManagement();
-        bool submitToQueue(unique_ptr<Task> task);
+        bool submitToQueue(std::unique_ptr<Task> task);
         void executeTasks();
 
     private:
-        queue<unique_ptr<Task>> taskQueue;
+        std::queue<std::unique_ptr<Task>> taskQueue;
 };
 
 #endif

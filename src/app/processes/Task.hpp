@@ -3,7 +3,7 @@
 #include <string>
 #include <iostream>
 #include "../fileHandling/IO.hpp"
-#include<sstream>
+#include <sstream>
 
 using namespace std;
 
@@ -34,8 +34,8 @@ struct Task{
         if(getline(iss, filePath,',') && getline(iss,actionStr)){
             Action action = (actionStr == "ENCRYPT" ? Action::ENCRYPT : Action::DECRYPT);
             IO io(filePath);
-            fstream f_stream = move(io.getFileStream());
-            if(!f_stream.is_open()){
+            fstream f_stream = io.getFileStream();
+            if(f_stream.is_open()){
                 return Task(move(f_stream),action,filePath);
             }
             else{
